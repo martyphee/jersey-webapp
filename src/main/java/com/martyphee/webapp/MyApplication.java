@@ -1,7 +1,9 @@
 package com.martyphee.webapp;
 
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
+
 import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
 
 /**
  * User: martinphee
@@ -9,12 +11,11 @@ import javax.ws.rs.core.Application;
  * Time: 2:50 PM
  */
 @ApplicationPath("resources")
-public class MyApplication extends Application {
+public class MyApplication extends ResourceConfig {
 
     public MyApplication() {
-//        super(MyResource.class);
+        super(MyResource.class);
 
-//        register(RolesAllowedDynamicFeature.class);
-        System.out.println("Startup");
+        register(RolesAllowedDynamicFeature.class);
     }
 }
